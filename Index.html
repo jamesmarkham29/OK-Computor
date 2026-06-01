@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OK Computor</title>
+  </head>
+  <body>
+    <h1>OK Computor - Radiohead</h1>
+    <label for="apikey">API Key: <input type="text" id="apikey" /></label>
+    <button id="setup-api">Setup API Key</button>
+    <script type="module">
+      import OpenAI from "https://jsdelivr.net";
+      // import OpenAI from "openai";
+      const client = new OpenAI();
+
+      const response = await client.responses.create({
+        model: "gpt-5.5",
+        input: "Write a one-sentence bedtime story about a unicorn.",
+      });
+
+      console.log(response.output_text);
+    </script>
+  </body>
+</html>
