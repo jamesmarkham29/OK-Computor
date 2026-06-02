@@ -27,7 +27,7 @@ def quote():
     input_text = request.args.get('q', 'Give me a short quote')
     try:
         quote_text = generate_quote(input_text)
-        return jsonify({'quote': quote_text})
+        return f'<h1>Generated Quote</h1><p>{quote_text}</p>'
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
